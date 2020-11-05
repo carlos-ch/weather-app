@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "axios": "^0.21.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
   },
   "devDependencies": {},
   "scripts": {
-    "server": "node server.js",
+    "server": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
