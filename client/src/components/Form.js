@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
+import './styles/Form.css';
+import searchIcon from './styles/search.svg';
 
-const Form = ({ setCities, setSearch }) => {
+const Form = ({ setCities }) => {
   const refContainer = useRef(null);
   const submitHandler = e => {
     e.preventDefault();
-    setSearch(refContainer.current.value);
     getCityData();
     refContainer.current.value = '';
   };
@@ -15,9 +16,14 @@ const Form = ({ setCities, setSearch }) => {
     setCities(response);
   };
   return (
-    <form onSubmit={submitHandler}>
-      <input type="text" ref={refContainer} />
-    </form>
+    <div className="form-wrapper">
+      <div className="form--box">
+        <form className="form" onSubmit={submitHandler}>
+          <input className="form--input" type="text" ref={refContainer} />
+        </form>
+        <img src={searchIcon} className="search--icon" alt="search" />
+      </div>
+    </div>
   );
 };
 

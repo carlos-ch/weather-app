@@ -12,7 +12,7 @@ const baseUrl = 'http://api.openweathermap.org/data/2.5/weather';
 
 const getData = async param => {
   const axiosRes = await axios.get(
-    baseUrl + `?q=${param}&appid=51f0c61b9e8ccbd3c0e3ce33c4c16f63`
+    baseUrl + `?q=${param}&units=metric&appid=51f0c61b9e8ccbd3c0e3ce33c4c16f63`
   );
   return axiosRes.data;
 };
@@ -31,6 +31,7 @@ app.get('/search/:city', async (req, res) => {
     id: data.id,
     name: data.name,
     description: data.weather[0].description,
+    icon: data.weather[0].icon,
     weather: data.main,
   });
   res.send(JSON.stringify(cityParsed(cityData))); // ---change here for real API
