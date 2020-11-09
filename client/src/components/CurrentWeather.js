@@ -20,17 +20,31 @@ const CurrentWeather = ({ city }) => {
     <div className="content-wrapper">
       <h2>{city.name}</h2>
       <div className="img-wrapper">
-        {city.icon === /01d/ ? <img src={i01d} alt="weather-icon" /> : null}
-        {city.icon === /01n/ ? <img src={i01n} alt="weather-icon" /> : null}
+        {city.icon === '01d' ? <img src={i01d} alt="weather-icon" /> : null}
+        {city.icon === '01n' ? <img src={i01n} alt="weather-icon" /> : null}
         {city.icon === '02d' ? <img src={i02d} alt="weather-icon" /> : null}
         {city.icon === '02n' ? <img src={i02n} alt="weather-icon" /> : null}
-        {city.icon === /03[nd]/i ? <img src={i03d} alt="weather-icon" /> : null}
-        {city.icon === '04d' ? <img src={i04d} alt="weather-icon" /> : null}
-        {city.icon === '09d' ? <img src={i09d} alt="weather-icon" /> : null}
-        {city.icon === '10d' ? <img src={i10d} alt="weather-icon" /> : null}
-        {city.icon === '11d' ? <img src={i11d} alt="weather-icon" /> : null}
-        {city.icon === '13d' ? <img src={i13d} alt="weather-icon" /> : null}
-        {city.icon === '50d' ? <img src={i50d} alt="weather-icon" /> : null}
+        {city.icon === '03d' || city.icon === '03n' ? (
+          <img src={i03d} alt="weather-icon" />
+        ) : null}
+        {city.icon === '04d' || city.icon === '04d' ? (
+          <img src={i04d} alt="weather-icon" />
+        ) : null}
+        {city.icon === '09d' || city.icon === '09d' ? (
+          <img src={i09d} alt="weather-icon" />
+        ) : null}
+        {city.icon === '10d' || city.icon === '09d' ? (
+          <img src={i10d} alt="weather-icon" />
+        ) : null}
+        {city.icon === '11d' || city.icon === '11d' ? (
+          <img src={i11d} alt="weather-icon" />
+        ) : null}
+        {city.icon === '13d' || city.icon === '13d' ? (
+          <img src={i13d} alt="weather-icon" />
+        ) : null}
+        {city.icon === '50d' || city.icon === '50d' ? (
+          <img src={i50d} alt="weather-icon" />
+        ) : null}
       </div>
       <h2 className="temp--text">{city.weather.temp} °C</h2>
       <p>{city.description}</p>

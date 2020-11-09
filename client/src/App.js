@@ -5,6 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 import Form from './components/Form';
 import CurrentWeather from './components/CurrentWeather';
+import About from './components/About';
 
 function App() {
   const [cities, setCities] = useState(null);
@@ -15,6 +16,7 @@ function App() {
       <Router>
         <Route path={`/search/:city`}></Route>
         <Route path="/about">
+          <About />
           {/* -----------------------------Aqui va la pagina de ABOUT */}
         </Route>
         <Route exact path="/">
