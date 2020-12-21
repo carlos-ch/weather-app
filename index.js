@@ -23,7 +23,7 @@ const getData = async param => {
   return axiosRes.data;
 };
 
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
   res.send(
     'Welcome to Tempo, my weather app. Heres the weather in your part of the world'
   );
