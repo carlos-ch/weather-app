@@ -27,22 +27,22 @@ const CurrentWeather = ({ city }) => {
         {city.icon === '03d' || city.icon === '03n' ? (
           <img src={i03d} alt="weather-icon" />
         ) : null}
-        {city.icon === '04d' || city.icon === '04d' ? (
+        {city.icon === '04d' || city.icon === '04n' ? (
           <img src={i04d} alt="weather-icon" />
         ) : null}
-        {city.icon === '09d' || city.icon === '09d' ? (
+        {city.icon === '09d' || city.icon === '09n' ? (
           <img src={i09d} alt="weather-icon" />
         ) : null}
-        {city.icon === '10d' || city.icon === '09d' ? (
+        {city.icon === '10d' || city.icon === '10n' ? (
           <img src={i10d} alt="weather-icon" />
         ) : null}
-        {city.icon === '11d' || city.icon === '11d' ? (
+        {city.icon === '11d' || city.icon === '11n' ? (
           <img src={i11d} alt="weather-icon" />
         ) : null}
-        {city.icon === '13d' || city.icon === '13d' ? (
+        {city.icon === '13d' || city.icon === '13n' ? (
           <img src={i13d} alt="weather-icon" />
         ) : null}
-        {city.icon === '50d' || city.icon === '50d' ? (
+        {city.icon === '50d' || city.icon === '50n' ? (
           <img src={i50d} alt="weather-icon" />
         ) : null}
       </div>
