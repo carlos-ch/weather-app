@@ -1,11 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const app = express();
 const axios = require('axios');
-
-require('dotenv').config();
-
-app.use(express.static(path.join(__dirname, 'client/build')));
 
 const mockData = require('./mockData.json');
 const bodyParser = require('body-parser');
@@ -22,6 +19,8 @@ const getData = async param => {
   );
   return axiosRes.data;
 };
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/api/', (req, res) => {
   res.send(
