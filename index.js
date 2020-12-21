@@ -1,6 +1,11 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const axios = require('axios');
+
+require('dotenv').config();
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 const mockData = require('./mockData.json');
 const bodyParser = require('body-parser');
@@ -8,11 +13,12 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const baseUrl = 'http://api.openweathermap.org/data/2.5/weather';
+const baseUrl = process.env.API_URL;
+const apiKey = process.env.API_KEY;
 
 const getData = async param => {
   const axiosRes = await axios.get(
-    baseUrl + `?q=${param}&units=metric&appid=51f0c61b9e8ccbd3c0e3ce33c4c16f63`
+    baseUrl + `?q=${param}&units=metric&appid=${apiKey}`
   );
   return axiosRes.data;
 };
@@ -37,5 +43,9 @@ app.get('/search/:city', async (req, res) => {
   res.send(JSON.stringify(cityParsed(cityData))); // ---change here for real API
 });
 
-const port = process.env.PORT || 5000;
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
+
+const port = process.env.PORT;
 app.listen(port, () => console.log(`listening on port ${port}`));
